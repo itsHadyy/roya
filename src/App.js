@@ -1,7 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './style.css';
-// import Navbar from './components/en/Navbar';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
 import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
@@ -9,8 +10,9 @@ function App() {
     <div className="App">
       <Router>
         <ScrollToTop />
+        <Navbar />
         <Routes>
-          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/" element={<Home />} />
           {/* <Route path="/about" element={<About />} /> */}
         </Routes>
         {/* <Footer /> */}
