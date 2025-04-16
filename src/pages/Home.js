@@ -8,7 +8,7 @@ function Home() {
         unitsUnder: 0,
         families: 0
     });
-    
+
     const statsRef = useRef(null);
     const hasAnimated = useRef(false);
 
@@ -30,16 +30,16 @@ function Home() {
         const stepValue = (end - start) / steps;
         let current = start;
         let step = 0;
-        
+
         const timer = setInterval(() => {
             step++;
             current = start + (stepValue * step);
-            
+
             if (step >= steps) {
                 current = end;
                 clearInterval(timer);
             }
-            
+
             setCounters(prev => ({
                 ...prev,
                 [key]: isDecimal ? Number(current.toFixed(1)) : Math.floor(current)
@@ -71,7 +71,7 @@ function Home() {
                 <h1>WHO WE ARE</h1>
                 <p>Roya Developments has always been crafting a space with intention and care, where each tailored element speaks to the story and needs of the dwellers within it. Since the company was founded in 2007, a name was made for itself for its genuine approach to creating inclusive, contemporary spaces that fuse timeless-ness and innovation within their many projects across Egypt.</p>
                 <p>Our wide portfolio of projects consists of Telal North Coast which is dotted with exquisite penthouses, chalets and villas, with unique themes and décor to match the signature lifestyle of each of its inhabitants, replete with private lagoons, health clubs and upscale restaurants. Its newest extension on the same stretch is Telal Soul, perched on the Alexandrian Matrouh Coastal road.</p>
-                
+
                 <div className="stats-section">
                     <div className="stats-container" ref={statsRef}>
                         <div className="stat-item">
@@ -116,6 +116,11 @@ function Home() {
                     <p>Welcome to Roya Development, where visionary design meets unparalleled quality. As a trusted leader in real estate development, we specialize in creating vibrant, sustainable communities that redefine modern living. Our commitment to excellence drives us to craft spaces that seamlessly blend functionality, aesthetics, and innovation, catering to the evolving needs of homeowners and investors alike. With a focus on delivering value and fostering lasting relationships, we take pride in transforming aspirations into reality, one remarkable project at a time.</p>
                 </div>
             </div>
+
+            <div className="home04">
+                
+            </div>
+
         </div>
     )
 }
