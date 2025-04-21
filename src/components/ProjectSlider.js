@@ -6,10 +6,20 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-const ProjectSlider = ({ projects, title, showBadgeOn }) => {
+const ProjectSlider = ({
+    projects,
+    title,
+    showBadgeOn,
+    titlePosition = 'above', 
+    showTitleWithSlide = false 
+}) => {
+    const effectiveTitlePosition = showTitleWithSlide ? 'with-slide' : titlePosition;
+
     return (
         <div className="project-slider-section">
-            {title && <h2 className="slider-section-title">{title}</h2>}
+            {title && effectiveTitlePosition === 'above' && (
+                <h2 className="slider-section-title">{title}</h2>
+            )}
 
             <div className="project-slider-container">
                 <Swiper
@@ -31,7 +41,13 @@ const ProjectSlider = ({ projects, title, showBadgeOn }) => {
                                 onClick={() => window.location.href = project.link}
                             >
                                 <img src={project.imageUrl} alt={project.title} />
+
+                                {title && effectiveTitlePosition === 'with-slide' && (
+                                    <div className="slide-title">{title}</div>
+                                )}
+
                                 <div className="project-title">{project.title}</div>
+                                <div className="project-description">{project.description}</div>
                                 {project.description && (
                                     <div className="project-description">{project.description}</div>
                                 )}

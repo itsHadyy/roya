@@ -756,7 +756,7 @@ footer .logo {
 
 .project-title {
     position: absolute;
-    bottom: 20px;
+    bottom: 40px;
     left: 20px;
     color: white;
     font-size: 24px;
@@ -804,4 +804,7 @@ footer .logo {
 .project-description {
     font-size: 16px;
     color: var(--white);
+    position: absolute;
+    bottom: 16px;
+    left: 20px;
 }

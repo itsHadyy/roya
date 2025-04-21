@@ -14,10 +14,10 @@ const Projects = () => {
         },
         {
             id: 2,
-            title: 'Garden Villas',
+            title: 'Selection by Tealal East',
             description: 'Residential',
-            imageUrl: '/media/projects/residential/garden-villas.jpg',
-            link: '/projects/garden-villas'
+            imageUrl: '/media/projects/newCairo/selectionByTelal/img01.jpg',
+            link: '/projects/slection'
         }
     ];
 
@@ -70,7 +70,7 @@ const Projects = () => {
 
             {/* Residential Projects Slider */}
             <ProjectSlider
-                title="Residential Projects"
+                title="New Cairo"
                 projects={newCairo}
             />
 
