@@ -7,60 +7,71 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 const ProjectSlider = ({
-    projects,
-    title,
-    showBadgeOn,
-    titlePosition = 'above', 
-    showTitleWithSlide = false 
+  projects,
+  title,
+  showBadgeOn,
+  titlePosition = 'above',
+  showTitleWithSlide = false
 }) => {
-    const effectiveTitlePosition = showTitleWithSlide ? 'with-slide' : titlePosition;
+  const effectiveTitlePosition = showTitleWithSlide ? 'with-slide' : titlePosition;
 
-    return (
-        <div className="project-slider-section">
-            {title && effectiveTitlePosition === 'above' && (
-                <h2 className="slider-section-title">{title}</h2>
-            )}
+  return (
+    <div className="project-slider-section">
+      {title && effectiveTitlePosition === 'above' && (
+        <h2 className="slider-section-title">{title}</h2>
+      )}
 
-            <div className="project-slider-container">
-                <Swiper
-                    modules={[Navigation, Pagination, Autoplay]}
-                    spaceBetween={30}
-                    slidesPerView={1}
-                    navigation
-                    pagination={{ clickable: true }}
-                    autoplay={{ delay: 5000 }}
-                    breakpoints={{
-                        768: { slidesPerView: 2 },
-                        1024: { slidesPerView: 3 }
-                    }}
-                >
-                    {projects.map((project) => (
-                        <SwiperSlide key={project.id}>
-                            <div
-                                className="project-slide"
-                                onClick={() => window.location.href = project.link}
-                            >
-                                <img src={project.imageUrl} alt={project.title} />
+      <div className="project-slider-container">
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          spaceBetween={30}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 5000 }}
+          centeredSlides={true}
+          breakpoints={{
+            768: { slidesPerView: 2, centeredSlides: false },
+            1024: { slidesPerView: 3, centeredSlides: false }
+          }}
+          onSlideChange={(swiper) => {
+            // Add/remove active class to slides
+            swiper.slides.forEach((slide) => {
+              slide.classList.remove('swiper-slide-active-centered');
+            });
+            swiper.slides[swiper.activeIndex].classList.add('swiper-slide-active-centered');
+          }}
+          onInit={(swiper) => {
+            // Initialize active slide on load
+            swiper.slides[swiper.activeIndex].classList.add('swiper-slide-active-centered');
+          }}
+        >
+          {projects.map((project) => (
+            <SwiperSlide key={project.id}>
+              <div
+                className="project-slide"
+                onClick={() => window.location.href = project.link}
+              >
+                <img src={project.imageUrl} alt={project.title} />
 
-                                {title && effectiveTitlePosition === 'with-slide' && (
-                                    <div className="slide-title">{title}</div>
-                                )}
+                {title && effectiveTitlePosition === 'with-slide' && (
+                  <div className="slide-title">{title}</div>
+                )}
 
-                                <div className="project-title">{project.title}</div>
-                                <div className="project-description">{project.description}</div>
-                                {project.description && (
-                                    <div className="project-description">{project.description}</div>
-                                )}
-                                {showBadgeOn && project.title === showBadgeOn && (
-                                    <div className="selection-badge">Selection By - {showBadgeOn}</div>
-                                )}
-                            </div>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-            </div>
-        </div>
-    );
+                <div className="project-title">{project.title}</div>
+                {project.description && (
+                  <div className="project-description">{project.description}</div>
+                )}
+                {showBadgeOn && project.title === showBadgeOn && (
+                  <div className="selection-badge">Selection By - {showBadgeOn}</div>
+                )}
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </div>
+  );
 };
 
 export default ProjectSlider;

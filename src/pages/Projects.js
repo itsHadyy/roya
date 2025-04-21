@@ -18,24 +18,31 @@ const Projects = () => {
             description: 'Residential',
             imageUrl: '/media/projects/newCairo/selectionByTelal/img01.jpg',
             link: '/projects/slection'
+        },
+        {
+            id: 3,
+            title: 'Telal East',
+            description: 'Residential',
+            imageUrl: '/media/projects/newCairo/telalEast/img01.png',
+            link: '/projects/telal-east'
+        },
+        {
+            id: 4,
+            title: 'The Hills - Oaks',
+            description: 'Residential',
+            imageUrl: '/media/projects/newCairo/theHills/Oaks/img01.png',
+            link: '/projects/oaks'
+        },
+        {
+            id: 5,
+            title: 'The Hills - Willows',
+            description: 'Residential',
+            imageUrl: '/media/projects/newCairo/theHills/Willows/img01.jpg',
+            link: '/projects/willows'
         }
     ];
 
     const commercialProjects = [
-        {
-            id: 3,
-            title: 'Park',
-            description: 'Commercial',
-            imageUrl: '/media/projects/newCairo/park/img01.jpg',
-            link: '/projects/park'
-        },
-        {
-            id: 4,
-            title: 'Telal East',
-            description: 'Commercial',
-            imageUrl: '/path-to-telal-east-image.jpg',
-            link: '/projects/telal-east'
-        },
         {
             id: 5,
             title: 'New Cairo',
@@ -65,7 +72,7 @@ const Projects = () => {
     return (
         <div>
             <div className="banner projects01">
-                <h1>Our Projects</h1>
+                <h1>Projects</h1>
             </div>
 
             {/* Residential Projects Slider */}
