@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 
 function About() {
     const [counters, setCounters] = useState({
@@ -12,20 +12,7 @@ function About() {
     const statsRef = useRef(null);
     const hasAnimated = useRef(false);
 
-    const startCounting = (entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting && !hasAnimated.current) {
-                hasAnimated.current = true;
-                animateValue('landUnder', 0, 6.5, 2000, true);
-                animateValue('rawLand', 0, 3.1, 2000, true);
-                animateValue('units', 0, 4900, 2000, false);
-                animateValue('unitsUnder', 0, 9200, 2000, false);
-                animateValue('families', 0, 3500, 2000, false);
-            }
-        });
-    };
-
-    const animateValue = (key, start, end, duration, isDecimal) => {
+    const animateValue = useCallback((key, start, end, duration, isDecimal) => {
         const steps = 60;
         const stepValue = (end - start) / steps;
         let current = start;
@@ -45,7 +32,22 @@ function About() {
                 [key]: isDecimal ? Number(current.toFixed(1)) : Math.floor(current)
             }));
         }, duration / steps);
-    };
+
+        return () => clearInterval(timer);
+    }, []);
+
+    const startCounting = useCallback((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting && !hasAnimated.current) {
+                hasAnimated.current = true;
+                animateValue('landUnder', 0, 6.5, 2000, true);
+                animateValue('rawLand', 0, 3.1, 2000, true);
+                animateValue('units', 0, 4900, 2000, false);
+                animateValue('unitsUnder', 0, 9200, 2000, false);
+                animateValue('families', 0, 3500, 2000, false);
+            }
+        });
+    }, [animateValue]);
 
     useEffect(() => {
         const observer = new IntersectionObserver(startCounting, {
@@ -57,7 +59,7 @@ function About() {
         }
 
         return () => observer.disconnect();
-    }, []);
+    }, [startCounting]);
 
     return (
         <div>
@@ -117,10 +119,9 @@ function About() {
                     <h1>Vision</h1>
                     <p>We aspire to create inspiring and exquisite communities that enhance quality of life, as well as provide an unmatched combination of luxury, Modernity and convenience in the Egyptian Real estate market.</p>
                 </div>
-
             </div>
-
         </div>
-    )
+    );
 }
+
 export default About;

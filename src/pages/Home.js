@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 
 function Home() {
     const [counters, setCounters] = useState({
@@ -12,20 +12,7 @@ function Home() {
     const statsRef = useRef(null);
     const hasAnimated = useRef(false);
 
-    const startCounting = (entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting && !hasAnimated.current) {
-                hasAnimated.current = true;
-                animateValue('landUnder', 0, 6.5, 2000, true);
-                animateValue('rawLand', 0, 3.1, 2000, true);
-                animateValue('units', 0, 4900, 2000, false);
-                animateValue('unitsUnder', 0, 9200, 2000, false);
-                animateValue('families', 0, 3500, 2000, false);
-            }
-        });
-    };
-
-    const animateValue = (key, start, end, duration, isDecimal) => {
+    const animateValue = useCallback((key, start, end, duration, isDecimal) => {
         const steps = 60;
         const stepValue = (end - start) / steps;
         let current = start;
@@ -45,7 +32,22 @@ function Home() {
                 [key]: isDecimal ? Number(current.toFixed(1)) : Math.floor(current)
             }));
         }, duration / steps);
-    };
+
+        return () => clearInterval(timer);
+    }, []);
+
+    const startCounting = useCallback((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting && !hasAnimated.current) {
+                hasAnimated.current = true;
+                animateValue('landUnder', 0, 6.5, 2000, true);
+                animateValue('rawLand', 0, 3.1, 2000, true);
+                animateValue('units', 0, 4900, 2000, false);
+                animateValue('unitsUnder', 0, 9200, 2000, false);
+                animateValue('families', 0, 3500, 2000, false);
+            }
+        });
+    }, [animateValue]);
 
     useEffect(() => {
         const observer = new IntersectionObserver(startCounting, {
@@ -57,7 +59,7 @@ function Home() {
         }
 
         return () => observer.disconnect();
-    }, []);
+    }, [startCounting]);
 
     return (
         <div>
@@ -92,7 +94,7 @@ function Home() {
                             <h2>{counters.families.toLocaleString()}</h2>
                             <p>NUMBER OF FAMILIES LIVING</p>
                         </div>
-                        <div className="stat-item">
+                        <div className="stat-item stat-last">
                             <a href="/projects" className="learn-more-container">
                                 <img src="/media/arrow.png" alt="Arrow" className="arrow-icon" />
                                 <div className="learn-more-text">
@@ -116,7 +118,7 @@ function Home() {
             </div>
 
             <div className="home04">
-                
+
             </div>
 
         </div>
