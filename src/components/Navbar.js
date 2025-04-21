@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaTimes } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../logo.png';
 
