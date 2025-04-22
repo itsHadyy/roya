@@ -856,3 +856,51 @@ footer .logo {
         transform: scale(0.95);
     }
 }
+
+/* src/styles/projectDetail.css */
+.project-detail .banner {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.project-content {
+    display: flex;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.project-image {
+    flex: 1;
+    margin-right: 2rem;
+}
+
+.project-image img {
+    width: 100%;
+    height: auto;
+}
+
+.project-info {
+    flex: 1;
+}
+
+.features {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .project-content {
+        flex-direction: column;
+    }
+
+    .project-image {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+}
