@@ -23,11 +23,10 @@ const ProjectSlider = ({
 
       <div className="project-slider-container">
         <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
+          modules={[Navigation, Autoplay]}
           spaceBetween={30}
           slidesPerView={1}
           navigation
-          pagination={{ clickable: true }}
           autoplay={{ delay: 5000 }}
           centeredSlides={true}
           breakpoints={{
@@ -35,14 +34,12 @@ const ProjectSlider = ({
             1024: { slidesPerView: 3, centeredSlides: false }
           }}
           onSlideChange={(swiper) => {
-            // Add/remove active class to slides
             swiper.slides.forEach((slide) => {
               slide.classList.remove('swiper-slide-active-centered');
             });
             swiper.slides[swiper.activeIndex].classList.add('swiper-slide-active-centered');
           }}
           onInit={(swiper) => {
-            // Initialize active slide on load
             swiper.slides[swiper.activeIndex].classList.add('swiper-slide-active-centered');
           }}
         >

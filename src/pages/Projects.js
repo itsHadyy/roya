@@ -6,67 +6,103 @@ import ProjectSlider from '../components/ProjectSlider';
 const Projects = () => {
     const newCairo = [
         {
-            id: 1,
+            id: 'stone-park',
             title: 'Stone Park',
             description: 'Residential',
             imageUrl: '/media/projects/newCairo/stonePark/img01.jpg',
             link: '/projects/stone-park'
         },
         {
-            id: 2,
+            id: 'selection-by-telal',
             title: 'Selection by Tealal East',
             description: 'Residential',
             imageUrl: '/media/projects/newCairo/selectionByTelal/img01.jpg',
-            link: '/projects/slection'
+            link: '/projects/selection-by-telal'
         },
         {
-            id: 3,
+            id: 'telal-east',
             title: 'Telal East',
             description: 'Residential',
             imageUrl: '/media/projects/newCairo/telalEast/img01.png',
             link: '/projects/telal-east'
         },
         {
-            id: 4,
+            id: 'the-hills-oaks',
             title: 'The Hills - Oaks',
             description: 'Residential',
             imageUrl: '/media/projects/newCairo/theHills/Oaks/img01.png',
-            link: '/projects/oaks'
+            link: '/projects/the-hills-oaks'
         },
         {
-            id: 5,
+            id: 'the-hills-willows',
             title: 'The Hills - Willows',
             description: 'Residential',
             imageUrl: '/media/projects/newCairo/theHills/Willows/img01.jpg',
-            link: '/projects/willows'
+            link: '/projects/the-hills-willows'
         }
     ];
 
     const commercialProjects = [
         {
-            id: 5,
-            title: 'New Cairo',
+            id: 'commercial',
+            title: 'Commercial',
             description: 'Commercial',
-            imageUrl: '/media/projects/newCairo/img01.jpg',
-            link: '/projects/new-cairo'
-        }
-    ];
-
-    const featuredProjects = [
-        {
-            id: 6,
-            title: 'Telal East',
-            description: 'Featured Project',
-            imageUrl: '/path-to-telal-east-image.jpg',
-            link: '/projects/telal-east'
+            imageUrl: '/media/projects/commercial/img01.jpg',
+            link: '/projects/commercial'
         },
         {
-            id: 7,
-            title: 'Ocean View',
-            description: 'Featured Project',
-            imageUrl: '/media/projects/featured/ocean-view.jpg',
-            link: '/projects/ocean-view'
+            id: 'commercial',
+            title: 'Commercial',
+            description: 'Commercial',
+            imageUrl: '/media/projects/commercial/img02.jpg',
+            link: '/projects/commercial'
+        },
+        {
+            id: 'commercial',
+            title: 'Commercial',
+            description: 'Commercial',
+            imageUrl: '/media/projects/commercial/img04.jpg',
+            link: '/projects/commercial'
         }
+    ];
+    const northCoast = [
+        {
+            id: 'north-coast',
+            title: 'North Coast',
+            description: 'Residential',
+            imageUrl: '/media/projects/northCoast/img01.jpg',
+            link: '/projects/north-coast'
+        },
+        {
+            id: 'north-coast',
+            title: 'North Coast',
+            description: 'Residential',
+            imageUrl: '/media/projects/northCoast/img02.jpg',
+            link: '/projects/north-coast'
+        },
+        {
+            id: 'north-coast',
+            title: 'Ocean View',
+            description: 'Residential',
+            imageUrl: '/media/projects/northCoast/img03.jpg',
+            link: '/projects/north-coast'
+        }
+    ];
+    const sokhna = [
+        {
+            id: 'sokhna-telal',
+            title: 'Telal',
+            description: 'Residential',
+            imageUrl: '/media/projects/sokhna/telal/img01.jpg',
+            link: '/projects/sokhna-telal'
+        },
+        {
+            id: 'sokhna-soul',
+            title: 'Soul',
+            description: 'Residential',
+            imageUrl: '/media/projects/sokhna/soul/img01.jpg',
+            link: '/projects/sokhna-soul'
+        },
     ];
 
     return (
@@ -75,23 +111,22 @@ const Projects = () => {
                 <h1>Projects</h1>
             </div>
 
-            {/* Residential Projects Slider */}
             <ProjectSlider
                 title="New Cairo"
                 projects={newCairo}
             />
-
-            {/* Commercial Projects Slider */}
             <ProjectSlider
                 title="Commercial Projects"
                 projects={commercialProjects}
             />
 
-            {/* Featured Projects Slider with badge */}
             <ProjectSlider
-                title="Featured Projects"
-                projects={featuredProjects}
-                showBadgeOn="Telal East"
+                title="North Coast"
+                projects={northCoast}
+            />
+            <ProjectSlider
+                title="Ain Sokhna"
+                projects={sokhna}
             />
         </div>
     );

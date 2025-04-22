@@ -805,30 +805,21 @@ footer .logo {
     font-size: 14px;
 }
 
-/* Swiper navigation arrows */
 .swiper-button-next,
 .swiper-button-prev {
-    color: white;
+    color: var(--roya01) !important;
     background-color: rgba(0, 0, 0, 0.5);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    width: 60px !important;
+    scale: 0.7 !important;
+    height: 60px !important;
+    border-radius: 50% !important;
+    font-size: 20px !important;
+
 }
 
 .swiper-button-next:after,
 .swiper-button-prev:after {
     font-size: 20px;
-}
-
-/* Swiper pagination dots */
-.swiper-pagination-bullet {
-    background: white;
-    opacity: 0.6;
-}
-
-.swiper-pagination-bullet-active {
-    background: #007aff;
-    opacity: 1;
 }
 
 .project-description {
@@ -839,7 +830,6 @@ footer .logo {
     left: 20px;
 }
 
-/* Add to your existing ProjectSlider.css */
 .slide-title {
     position: absolute;
     top: 20px;
