@@ -45,21 +45,21 @@ const Projects = () => {
     const commercialProjects = [
         {
             id: 'commercial',
-            title: 'Commercial',
+            title: 'The Big Business District',
             description: 'Commercial',
             imageUrl: '/media/projects/commercial/img01.jpg',
             link: '/projects/commercial'
         },
         {
             id: 'commercial',
-            title: 'Commercial',
+            title: 'The Big Business District',
             description: 'Commercial',
             imageUrl: '/media/projects/commercial/img02.jpg',
             link: '/projects/commercial'
         },
         {
             id: 'commercial',
-            title: 'Commercial',
+            title: 'The Big Business District',
             description: 'Commercial',
             imageUrl: '/media/projects/commercial/img04.jpg',
             link: '/projects/commercial'
@@ -68,33 +68,10 @@ const Projects = () => {
     const northCoast = [
         {
             id: 'north-coast',
-            title: 'North Coast',
+            title: 'Telal',
             description: 'Residential',
             imageUrl: '/media/projects/northCoast/img01.jpg',
             link: '/projects/north-coast'
-        },
-        {
-            id: 'north-coast',
-            title: 'North Coast',
-            description: 'Residential',
-            imageUrl: '/media/projects/northCoast/img02.jpg',
-            link: '/projects/north-coast'
-        },
-        {
-            id: 'north-coast',
-            title: 'Ocean View',
-            description: 'Residential',
-            imageUrl: '/media/projects/northCoast/img03.jpg',
-            link: '/projects/north-coast'
-        }
-    ];
-    const sokhna = [
-        {
-            id: 'sokhna-telal',
-            title: 'Telal',
-            description: 'Residential',
-            imageUrl: '/media/projects/sokhna/telal/img01.jpg',
-            link: '/projects/sokhna-telal'
         },
         {
             id: 'sokhna-soul',
@@ -102,6 +79,22 @@ const Projects = () => {
             description: 'Residential',
             imageUrl: '/media/projects/sokhna/soul/img01.jpg',
             link: '/projects/sokhna-soul'
+        },
+        {
+            id: 'north-coast',
+            title: 'Telal',
+            description: 'Residential',
+            imageUrl: '/media/projects/northCoast/img02.jpg',
+            link: '/projects/north-coast'
+        },
+    ];
+    const sokhna = [
+        {
+            id: 'sokhna-telal',
+            title: 'Telal Shores',
+            description: 'Residential',
+            imageUrl: '/media/projects/sokhna/telal/img01.jpg',
+            link: '/projects/sokhna-telal'
         },
     ];
 
