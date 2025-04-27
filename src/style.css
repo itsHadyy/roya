@@ -1066,6 +1066,10 @@ footer .logo {
     z-index: 1;
 } */
 
+.footerMobile {
+    display: none;
+}
+
 @media (max-width: 768px) {
     header {
         background-color: transparent;
@@ -1297,13 +1301,85 @@ footer .logo {
         width: 100%;
     }
 
-    .contactInfoContainer{
+    .contactInfoContainer {
         display: block;
     }
 
-    .contactCard{
+    .contactCard {
         padding: 20px;
         height: auto;
         margin: 20px auto;
+    }
+
+    footer {
+        display: none;
+    }
+
+    .footerMobile {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        background-color: var(--roya02);
+        padding: 20px;
+        box-sizing: border-box;
+        color: var(--white);
+        position: relative;
+        overflow: hidden;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .footerMobile .center {
+        color: var(--roya01);
+        font-size: 12px;
+    }
+
+    .footerMobile .logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .footerMobile .btn {
+        font-size: 14px;
+    }
+
+    .footerLinks {
+        grid-template-columns: repeat(3, 1fr);
+        clear: both;
+        width: 100%;
+        grid-column: span 2;
+        margin-top: 20px;
+    }
+
+    .footerBottom{
+        padding: 0;
+        display: grid;
+        grid-column: span 2;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footerBottom hr{
+        grid-column: span 2;
+        width: 100%;
+        margin: 40px auto;
+        margin-bottom: 0;
+    }
+
+    .footerBottom .socialMediaIcons {
+        display: flex;
+        gap: 10px;
+    }
+
+    .appStoreContainer img {
+        width: 100px;
+    }
+    .appStoreContainer {
+        display: flex;
+        gap: 10px;
+        flex-direction: row;
+    }
+
+    .footerLinks a{
+        font-size: 18px;
     }
 }

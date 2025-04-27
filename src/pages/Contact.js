@@ -1,10 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function Contact() {
 
     const img02 = '/media/icons/phone.png';
     const img03 = '/media/icons/mail.png';
     const img04 = '/media/icons/pin.png';
+
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+    });
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await fetch('http://localhost:3001/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                alert('Message sent successfully!');
+                setFormData({
+                    name: '',
+                    email: '',
+                    phone: '',
+                    message: ''
+                });
+            } else {
+                throw new Error('Failed to send message');
+            }
+        } catch (error) {
+            console.error(error);
+            alert('Failed to send message, please try again.');
+        }
+    };
 
     return (
         <div>
@@ -16,11 +56,37 @@ function Contact() {
                 <div className='eventsMainContainer'>
                     <div className='contactContainer'>
                         <h2>Let's Get In Touch</h2>
-                        <form>
-                            <input type="text" placeholder='Full Name' />
-                            <input type="email" placeholder='Email Address' />
-                            <input type="text" placeholder='Phone Number' />
-                            <textarea placeholder='Message' />
+                        <form onSubmit={handleSubmit}>
+                            <input
+                                type="text"
+                                name="name"
+                                value={formData.name}
+                                onChange={handleChange}
+                                placeholder='Full Name'
+                                required
+                            />
+                            <input
+                                type="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                placeholder='Email Address'
+                                required
+                            />
+                            <input
+                                type="text"
+                                name="phone"
+                                value={formData.phone}
+                                onChange={handleChange}
+                                placeholder='Phone Number'
+                            />
+                            <textarea
+                                name="message"
+                                value={formData.message}
+                                onChange={handleChange}
+                                placeholder='Message'
+                                required
+                            />
                             <br />
                             <button type='submit' className='btn'>Send Message</button>
                         </form>
