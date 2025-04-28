@@ -1351,14 +1351,14 @@ footer .logo {
         margin-top: 20px;
     }
 
-    .footerBottom{
+    .footerBottom {
         padding: 0;
         display: grid;
         grid-column: span 2;
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .footerBottom hr{
+    .footerBottom hr {
         grid-column: span 2;
         width: 100%;
         margin: 40px auto;
@@ -1373,13 +1373,50 @@ footer .logo {
     .appStoreContainer img {
         width: 100px;
     }
+
     .appStoreContainer {
         display: flex;
         gap: 10px;
         flex-direction: row;
     }
 
-    .footerLinks a{
+    .footerLinks a {
         font-size: 18px;
+    }
+
+    .eventsMainContainer {
+        width: 100%;
+    }
+
+    .event-content {
+        display: block;
+        padding: 20px;
+    }
+
+    .event-content img {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 20px;
+    }
+
+    .event-content-item {
+        width: 100%;
+        padding-bottom: 20px;
+    }
+
+    .eventsHeader {
+        display: block;
+    }
+
+    .event-content h1 {
+        font-size: 1.3rem;
+    }
+
+    .eventsHeader p {
+        font-size: 12px;
+    }
+
+    .event-content p{
+        font-size: 14px;
     }
 }
