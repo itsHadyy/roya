@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 
 function Events() {
 
@@ -27,7 +27,7 @@ function Events() {
                                 sagittis bilendum in tempus eget. Amet consectetur quisque bilendum et habitasse dolor
                                 cursus vitae. Sit ullamcorper in urna dui ut risus imperdiet ullamcorper eget hac.
                             </p>
-                            <a href="" className="read-more">Read More →</a>
+                            <a href="#" className="read-more">Read More →</a>
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@ function Events() {
                                 sagittis bilendum in tempus eget. Amet consectetur quisque bilendum et habitasse dolor
                                 cursus vitae. Sit ullamcorper in urna dui ut risus imperdiet ullamcorper eget hac.
                             </p>
-                            <a href="" className="read-more">Read More →</a>
+                            <a href="#" className="read-more">Read More →</a>
                         </div>
                     </div>
                 </div>
@@ -67,7 +67,7 @@ function Events() {
                                 sagittis bilendum in tempus eget. Amet consectetur quisque bilendum et habitasse dolor
                                 cursus vitae. Sit ullamcorper in urna dui ut risus imperdiet ullamcorper eget hac.
                             </p>
-                            <a href="" className="read-more">Read More →</a>
+                            <a href="#" className="read-more">Read More →</a>
                         </div>
                     </div>
                 </div>
