@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 
 function Home() {
     const [counters, setCounters] = useState({
@@ -94,15 +95,17 @@ function Home() {
                             <h2>{counters.families.toLocaleString()}+</h2>
                             <p>Human Workforce</p>
                         </div>
-                        <div className="stat-item stat-last">
-                            <a href="/projects" className="learn-more-container">
-                                <img src="/media/arrow.png" alt="Arrow" className="arrow-icon" />
-                                <div className="learn-more-text">
-                                    <span>Learn</span>
-                                    <span>more</span>
-                                </div>
-                            </a>
-                        </div>
+                        <Link to='/projects'>
+                            <div className="stat-item stat-last">
+                                <a href='/projects' className="learn-more-container">
+                                    <img src="/media/arrow.png" alt="Arrow" className="arrow-icon" />
+                                    <div className="learn-more-text">
+                                        <span>Learn</span>
+                                        <span>more</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </Link>
                     </div>
                     <div className="eye-image">
                         <img src="/media/eye.png" alt="Eye" />

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
+import {Link} from 'react-router-dom';
 
 function About() {
     const [counters, setCounters] = useState({
@@ -96,15 +97,17 @@ function About() {
                             <h2>{counters.families.toLocaleString()}</h2>
                             <p>NUMBER OF FAMILIES LIVING</p>
                         </div>
-                        <div className="stat-item stat-last">
-                            <a href="/projects" className="learn-more-container">
-                                <img src="/media/arrow.png" alt="Arrow" className="arrow-icon" />
-                                <div className="learn-more-text">
-                                    <span>Learn</span>
-                                    <span>more</span>
-                                </div>
-                            </a>
-                        </div>
+                        <Link to='/projects'>
+                            <div className="stat-item stat-last">
+                                <a href='/projects' className="learn-more-container">
+                                    <img src="/media/arrow.png" alt="Arrow" className="arrow-icon" />
+                                    <div className="learn-more-text">
+                                        <span>Learn</span>
+                                        <span>more</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </div>

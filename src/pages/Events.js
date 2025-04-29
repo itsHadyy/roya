@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Events() {
 
@@ -27,7 +28,9 @@ function Events() {
                                 sagittis bilendum in tempus eget. Amet consectetur quisque bilendum et habitasse dolor
                                 cursus vitae. Sit ullamcorper in urna dui ut risus imperdiet ullamcorper eget hac.
                             </p>
-                            <a href="/home" className="read-more">Read More →</a>
+                            <Link to='/'>
+                                <a href="/home" className="read-more">Read More →</a>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -47,7 +50,9 @@ function Events() {
                                 sagittis bilendum in tempus eget. Amet consectetur quisque bilendum et habitasse dolor
                                 cursus vitae. Sit ullamcorper in urna dui ut risus imperdiet ullamcorper eget hac.
                             </p>
-                            <a href="/home" className="read-more">Read More →</a>
+                            <Link to='/'>
+                                <a href="/home" className="read-more">Read More →</a>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -67,7 +72,9 @@ function Events() {
                                 sagittis bilendum in tempus eget. Amet consectetur quisque bilendum et habitasse dolor
                                 cursus vitae. Sit ullamcorper in urna dui ut risus imperdiet ullamcorper eget hac.
                             </p>
-                            <a href="/home" className="read-more">Read More →</a>
+                            <Link to='/'>
+                                <a href="/home" className="read-more">Read More →</a>
+                            </Link>
                         </div>
                     </div>
                 </div>
