@@ -49,7 +49,7 @@ const ProjectSlider = ({
                 className="project-slide"
                 onClick={() => window.location.href = project.link}
               >
-                <img src={project.imageUrl} alt={project.title} />
+                <img src={project.imageUrl} alt={project.title} loading='eager' />
 
                 {title && effectiveTitlePosition === 'with-slide' && (
                   <div className="slide-title">{title}</div>

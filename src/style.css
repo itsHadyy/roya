@@ -33,7 +33,7 @@ header {
     padding: 20px 80px;
     border-radius: 80px;
     width: 80%;
-    position: absolute;
+    position: fixed;
     top: 50px;
     left: 50%;
     transform: translateX(-50%);
@@ -65,21 +65,22 @@ header {
 
 .sidebar {
     position: fixed;
-    top: -50px;
-    right: -520px;
+    top: 0;
+    right: -350px;
+    /* Should match the width of the sidebar */
     width: 350px;
     height: 100vh;
     background-color: var(--roya01);
     box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
     transition: right 0.3s ease-in-out;
-    z-index: 100;
+    z-index: 9999;
     font-weight: bold;
     text-align: center;
-
 }
 
 .sidebar.open {
-    right: -170px;
+    right: 0;
+    /* Brings it fully into view */
 }
 
 .sidebar ul {
@@ -1416,7 +1417,7 @@ footer .logo {
         font-size: 12px;
     }
 
-    .event-content p{
+    .event-content p {
         font-size: 14px;
     }
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
+import Projects from './Projects';
 
 function Home() {
     const [counters, setCounters] = useState({
@@ -41,11 +42,11 @@ function Home() {
         entries.forEach((entry) => {
             if (entry.isIntersecting && !hasAnimated.current) {
                 hasAnimated.current = true;
-                animateValue('landUnder', 0, 36, 2000, true);
-                animateValue('rawLand', 0, 100, 2000, true);
-                animateValue('units', 0, 20, 2000, false);
-                animateValue('unitsUnder', 0, 60, 2000, false);
-                animateValue('families', 0, 3600, 2000, false);
+                animateValue('landUnder', 0, 36, 1500, true);
+                animateValue('rawLand', 0, 100, 1500, true);
+                animateValue('units', 0, 20, 1500, false);
+                animateValue('unitsUnder', 0, 60, 1500, false);
+                animateValue('families', 0, 3600, 1500, false);
             }
         });
     }, [animateValue]);
@@ -120,9 +121,7 @@ function Home() {
                 </div>
             </div>
 
-            <div className="home04">
-
-            </div>
+            <Projects showBanner={false} />
 
         </div>
     )

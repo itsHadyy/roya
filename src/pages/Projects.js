@@ -3,7 +3,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import ProjectSlider from '../components/ProjectSlider';
-const Projects = () => {
+const Projects = ({ showBanner = true }) => {
     const newCairo = [
         {
             id: 'stone-park',
@@ -100,9 +100,11 @@ const Projects = () => {
 
     return (
         <div>
-            <div className="banner projects01">
-                <h1>Projects</h1>
-            </div>
+            {showBanner && (
+                <div className="banner projects01">
+                    <h1>Projects</h1>
+                </div>
+            )}
 
             <ProjectSlider
                 title="New Cairo"

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function About() {
     const [counters, setCounters] = useState({
@@ -41,11 +41,11 @@ function About() {
         entries.forEach((entry) => {
             if (entry.isIntersecting && !hasAnimated.current) {
                 hasAnimated.current = true;
-                animateValue('landUnder', 0, 6.5, 2000, true);
-                animateValue('rawLand', 0, 3.1, 2000, true);
-                animateValue('units', 0, 4900, 2000, false);
-                animateValue('unitsUnder', 0, 9200, 2000, false);
-                animateValue('families', 0, 3500, 2000, false);
+                animateValue('landUnder', 0, 6.5, 1500, true);
+                animateValue('rawLand', 0, 3.1, 1500, true);
+                animateValue('units', 0, 4900, 1500, false);
+                animateValue('unitsUnder', 0, 9200, 1500, false);
+                animateValue('families', 0, 3500, 1500, false);
             }
         });
     }, [animateValue]);

@@ -46,35 +46,37 @@ function Navbar() {
     ];
 
     return (
-        <header className="navbar">
-            <Link to="/">
-                <img src={logo} className="logo" alt="Roya Logo" />
-            </Link>
+        <div>
+            <header className="navbar">
+                <Link to="/">
+                    <img src={logo} className="logo" alt="Roya Logo" />
+                </Link>
 
-            <div className='navContent'>
+                <div className='navContent'>
 
-                <div className='socialMediaIcons'>
-                    <Link to="https://www.facebook.com/RoyaDevelopments">
-                        <img src={facebook} className="logo" alt="Roya Logo" />
-                    </Link>
-                    <Link to="https://instagram.com/royadevelopments?igshid=MzRlODBiNWFlZA==">
-                        <img src={instagram} className="logo" alt="Roya Logo" />
-                    </Link>
-                    <Link to="https://wa.me/201144332211">
-                        <img src={whatsapp} className="logo" alt="Roya Logo" />
-                    </Link>
-                    <Link to="https://www.linkedin.com/company/roya-developments/">
-                        <img src={linkedin} className="logo" alt="Roya Logo" />
-                    </Link>
-                    <Link to="https://youtube.com/@royadevelopments2864?si=mwRil5d0G_dnYsmp">
-                        <img src={youtube} className="logo" alt="Roya Logo" />
-                    </Link>
+                    <div className='socialMediaIcons'>
+                        <Link to="https://www.facebook.com/RoyaDevelopments">
+                            <img src={facebook} className="logo" alt="Roya Logo" />
+                        </Link>
+                        <Link to="https://instagram.com/royadevelopments?igshid=MzRlODBiNWFlZA==">
+                            <img src={instagram} className="logo" alt="Roya Logo" />
+                        </Link>
+                        <Link to="https://wa.me/201144332211">
+                            <img src={whatsapp} className="logo" alt="Roya Logo" />
+                        </Link>
+                        <Link to="https://www.linkedin.com/company/roya-developments/">
+                            <img src={linkedin} className="logo" alt="Roya Logo" />
+                        </Link>
+                        <Link to="https://youtube.com/@royadevelopments2864?si=mwRil5d0G_dnYsmp">
+                            <img src={youtube} className="logo" alt="Roya Logo" />
+                        </Link>
+                    </div>
+
+                    <h4>Hotline: 01144332211</h4>
+                    <img src={menu} className="logo" alt="Roya Logo" onClick={toggleMenu} />
                 </div>
 
-                <h4>Hotline: 01144332211</h4>
-                <img src={menu} className="logo" alt="Roya Logo" onClick={toggleMenu} />
-            </div>
-
+            </header>
             <nav ref={sidebarRef} className={`sidebar ${isOpen ? 'open' : ''}`}>
                 <FaTimes className="close-icon" onClick={toggleMenu} />
                 <ul>
@@ -89,7 +91,7 @@ function Navbar() {
                     ))}
                 </ul>
             </nav>
-        </header>
+        </div>
     );
 }
 
