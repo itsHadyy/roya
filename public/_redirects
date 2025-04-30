@@ -1,1 +1,2 @@
-/*    /index.html   200
+/media/brochures/*  /media/brochures/:splat  200
+/*                 /index.html              200

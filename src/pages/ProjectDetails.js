@@ -246,7 +246,13 @@ const ProjectDetails = () => {
 
                 <div className='downloadContainer'>
                     {project.brochureUrl && (
-                        <a href={project.brochureUrl} rel="noopener noreferrer" className="download-btn">
+                        <a
+                            href={`${project.brochureUrl}?v=${Date.now()}`}
+                            download={project.brochureUrl.split('/').pop()}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="download-btn"
+                        >
                             Download Brochure
                         </a>
                     )}
