@@ -72,7 +72,7 @@ function Navbar() {
                         </Link>
                     </div>
 
-                    <h4>Hotline: 01144332211</h4>
+                    <h4>Hotline: 16466</h4>
                     <img src={menu} className="logo" alt="Roya Logo" onClick={toggleMenu} />
                 </div>
 

@@ -5,6 +5,7 @@ import { Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { Link } from 'react-router-dom';
 
 const ProjectSlider = ({
   projects,
@@ -25,12 +26,13 @@ const ProjectSlider = ({
         <Swiper
           modules={[Navigation, Autoplay]}
           spaceBetween={30}
-          slidesPerView={1}
+          slidesPerView={3}
           navigation
-          autoplay={{ delay: 5000 }}
+          autoplay={{ delay: 3000 }}
           centeredSlides={true}
           lazy={true}
           watchSlidesProgress={true}
+          loop={true}
           breakpoints={{
             768: { slidesPerView: 2, centeredSlides: false },
             1024: { slidesPerView: 3, centeredSlides: false },
@@ -47,28 +49,31 @@ const ProjectSlider = ({
         >
           {projects.map((project) => (
             <SwiperSlide key={project.id}>
-              <div
-                className="project-slide"
-                onClick={() => window.location.href = project.link}
-              >
-                <img
-                  src={project.imageUrl}
-                  className="swiper-lazy"
-                  alt={project.title}
-                />
+              <h2 className="slider-section-title">{project.location}</h2>
+              <Link to={project.link}>
+                <div
+                  className="project-slide"
+                >
 
-                {title && effectiveTitlePosition === 'with-slide' && (
-                  <div className="slide-title">{title}</div>
-                )}
+                  <img
+                    src={project.imageUrl}
+                    className="swiper-lazy"
+                    alt={project.title}
+                  />
 
-                <div className="project-title">{project.title}</div>
-                {project.description && (
-                  <div className="project-description">{project.description}</div>
-                )}
-                {showBadgeOn && project.title === showBadgeOn && (
-                  <div className="selection-badge">Selection By - {showBadgeOn}</div>
-                )}
-              </div>
+                  {title && effectiveTitlePosition === 'with-slide' && (
+                    <div className="slide-title">{title}</div>
+                  )}
+
+                  <div className="project-title">{project.title}</div>
+                  {project.description && (
+                    <div className="project-description">{project.description}</div>
+                  )}
+                  {showBadgeOn && project.title === showBadgeOn && (
+                    <div className="selection-badge">Selection By - {showBadgeOn}</div>
+                  )}
+                </div>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>
