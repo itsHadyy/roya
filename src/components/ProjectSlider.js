@@ -29,9 +29,11 @@ const ProjectSlider = ({
           navigation
           autoplay={{ delay: 5000 }}
           centeredSlides={true}
+          lazy={true}
+          watchSlidesProgress={true}
           breakpoints={{
             768: { slidesPerView: 2, centeredSlides: false },
-            1024: { slidesPerView: 3, centeredSlides: false }
+            1024: { slidesPerView: 3, centeredSlides: false },
           }}
           onSlideChange={(swiper) => {
             swiper.slides.forEach((slide) => {
@@ -49,7 +51,11 @@ const ProjectSlider = ({
                 className="project-slide"
                 onClick={() => window.location.href = project.link}
               >
-                <img src={project.imageUrl} alt={project.title} loading='eager' />
+                <img
+                  src={project.imageUrl}
+                  className="swiper-lazy"
+                  alt={project.title}
+                />
 
                 {title && effectiveTitlePosition === 'with-slide' && (
                   <div className="slide-title">{title}</div>
