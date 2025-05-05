@@ -1088,6 +1088,13 @@ footer .logo {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../public/media/banners/home01.png');
     color: var(--white);
     background-size: cover;
+    cursor: pointer;
+    transition: 0.3s all ease-in-out;
+}
+
+.proj:hover{
+    transform: translateY(-4px);
+    scale: 1.01;
 }
 
 .newCairo {
