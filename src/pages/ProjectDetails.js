@@ -226,44 +226,44 @@ const ProjectDetails = () => {
 
     useEffect(() => {
         setFade('fade-in');
-        setSelectedMedia(project?.media[0]);
+        // setSelectedMedia(project?.media[0]);
     }, [projectId]);
 
     if (!project) return <div style={{ color: 'white', fontSize: '44px', fontWeight: 'bold', textAlign: 'center', margin: '500px' }}>Project not found</div>;
 
     return (
         <div className={fade}>
-            {/* Dropdown Menu */}
-            <div className="project-selector">
-                <button
-                    className="dropdown-toggle"
-                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                >
-                    {project.title}
-                    <svg className={`dropdown-arrow ${isDropdownOpen ? 'open' : ''}`} viewBox="0 0 24 24">
-                        <path d="M7 10l5 5 5-5z" />
-                    </svg>
-                </button>
-
-                {isDropdownOpen && (
-                    <div className="dropdown-menu">
-                        {currentCategoryProjects.map(proj => (
-                            <div
-                                key={proj.id}
-                                className={`dropdown-item ${projectId === proj.id ? 'active' : ''}`}
-                                onClick={() => handleProjectChange(proj.id)}
-                            >
-                                {proj.title}
-                            </div>
-                        ))}
-                    </div>
-                )}
-            </div>
             <div className="project-detail">
                 <div className="banner events01" style={{ backgroundImage: `url(${project.media[0].url})` }}>
                     <div>
-                        <h1>{project.title}</h1>
-                        <h3>{project.location}</h3>
+                        {/* <h1>{project.title}</h1> */}
+                        <h1>{project.location}</h1>
+
+                        <div className="project-selector">
+                            <button
+                                className="dropdown-toggle"
+                                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                            >
+                                {project.title}
+                                <svg className={`dropdown-arrow ${isDropdownOpen ? 'open' : ''}`} viewBox="0 0 24 24">
+                                    <path d="M7 10l5 5 5-5z" />
+                                </svg>
+                            </button>
+
+                            {isDropdownOpen && (
+                                <div className="dropdown-menu">
+                                    {currentCategoryProjects.map(proj => (
+                                        <div
+                                            key={proj.id}
+                                            className={`dropdown-item ${projectId === proj.id ? 'active' : ''}`}
+                                            onClick={() => handleProjectChange(proj.id)}
+                                        >
+                                            {proj.title}
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
 
