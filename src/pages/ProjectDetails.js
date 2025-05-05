@@ -1,8 +1,29 @@
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const ProjectDetails = () => {
     const { projectId } = useParams();
+    const navigate = useNavigate();
+
+    const projectCategories = {
+        'newCairo': [
+            'stone-park',
+            'selection-by-telal',
+            'telal-east',
+            'the-hills-oaks',
+            'the-hills-willows'
+        ],
+        'northCoast': [
+            'north-coast'
+        ],
+        'sokhna': [
+            'sokhna-telal',
+            'sokhna-soul'
+        ],
+        'commercial': [
+            'commercial'
+        ]
+    };
 
     const allProjects = [
         {
@@ -176,14 +197,68 @@ const ProjectDetails = () => {
         },
     ];
 
-    const project = allProjects.find(p => p.id === projectId);
 
+    const project = allProjects.find(p => p.id === projectId);
     const [selectedMedia, setSelectedMedia] = useState(project?.media[0]);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [fade, setFade] = useState('fade-in');
+
+    // Find current category based on projectId
+    const currentCategory = Object.keys(projectCategories).find(category =>
+        projectCategories[category].includes(projectId)
+    );
+
+    // Get projects for current category
+    const currentCategoryProjects = currentCategory ?
+        allProjects.filter(p => projectCategories[currentCategory].includes(p.id)) :
+        [];
+
+    const handleProjectChange = (newProjectId) => {
+        if (newProjectId !== projectId) {
+            setFade('fade-out');
+            setTimeout(() => {
+                navigate(`/projects/${newProjectId}`);
+                setFade('fade-in');
+            }, 300); // Match this duration with your CSS transition
+        }
+        setIsDropdownOpen(false);
+    };
+
+    useEffect(() => {
+        setFade('fade-in');
+        setSelectedMedia(project?.media[0]);
+    }, [projectId]);
 
     if (!project) return <div style={{ color: 'white', fontSize: '44px', fontWeight: 'bold', textAlign: 'center', margin: '500px' }}>Project not found</div>;
 
     return (
-        <div>
+        <div className={fade}>
+            {/* Dropdown Menu */}
+            <div className="project-selector">
+                <button
+                    className="dropdown-toggle"
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                >
+                    {project.title}
+                    <svg className={`dropdown-arrow ${isDropdownOpen ? 'open' : ''}`} viewBox="0 0 24 24">
+                        <path d="M7 10l5 5 5-5z" />
+                    </svg>
+                </button>
+
+                {isDropdownOpen && (
+                    <div className="dropdown-menu">
+                        {currentCategoryProjects.map(proj => (
+                            <div
+                                key={proj.id}
+                                className={`dropdown-item ${projectId === proj.id ? 'active' : ''}`}
+                                onClick={() => handleProjectChange(proj.id)}
+                            >
+                                {proj.title}
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </div>
             <div className="project-detail">
                 <div className="banner events01" style={{ backgroundImage: `url(${project.media[0].url})` }}>
                     <div>
