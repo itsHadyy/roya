@@ -14,11 +14,11 @@ const ProjectDetails = () => {
             'the-hills-willows'
         ],
         'northCoast': [
-            'north-coast'
+            'north-coast',
+            'soul'
         ],
         'sokhna': [
             'sokhna-telal',
-            'sokhna-soul'
         ],
         'commercial': [
             'commercial'
@@ -174,7 +174,7 @@ const ProjectDetails = () => {
             },
         },
         {
-            id: 'sokhna-soul',
+            id: 'soul',
             title: 'Soul',
             description: 'Residential',
             fullDescription:
